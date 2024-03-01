@@ -1,0 +1,9 @@
+<ul class="horizontal">
+  @for (tab of tabs; track $index) {
+    <li>
+      <a [routerLink]="tab.routerLink" routerLinkActive="active">{{
+        tab.label
+      }}</a>
+    </li>
+  }
+</ul>

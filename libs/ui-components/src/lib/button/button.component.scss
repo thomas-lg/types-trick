@@ -1,0 +1,12 @@
+button {
+  background-color: #04aa6d;
+  color: whitesmoke;
+  border-radius: 5px;
+  padding: 6px 18px;
+  outline: none;
+  font-size: 2rem;
+  border: 1px solid whitesmoke;
+  &:active {
+    background-color: #058f5c;
+  }
+}

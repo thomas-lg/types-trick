@@ -1,0 +1,31 @@
+@for (shape of shapesWithArea; track shape.id) {
+  <div class="container">
+    <span> Name: {{ shape.name }} </span>
+    @switch (shape.kind) {
+      @case (shapeTypeEnum.CIRCLE) {
+        <div
+          class="shape circle"
+          [style.width.px]="shape.radius"
+          [style.height.px]="shape.radius"
+          [style.borderRadius.px]="shape.radius"
+        ></div>
+      }
+      @case (shapeTypeEnum.RECTANGLE) {
+        <div
+          class="shape rectangle"
+          [style.width.px]="shape.width"
+          [style.height.px]="shape.height"
+        ></div>
+      }
+      @case (shapeTypeEnum.SQUARE) {
+        <div
+          class="shape square"
+          [style.width.px]="shape.sideLength"
+          [style.height.px]="shape.sideLength"
+        ></div>
+      }
+    }
+    Area: {{ shape.area }}
+    <hr />
+  </div>
+}

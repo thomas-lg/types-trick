@@ -1,0 +1,9 @@
+{
+  "name": "ui-components",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui-components/src",
+  "prefix": "types-trick",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

@@ -1,0 +1,76 @@
+{
+  "name": "types-trick",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "types-trick",
+  "sourceRoot": "apps/types-trick/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/types-trick",
+        "index": "apps/types-trick/src/index.html",
+        "browser": "apps/types-trick/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/types-trick/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/types-trick/src/favicon.ico",
+          "apps/types-trick/src/assets"
+        ],
+        "styles": ["apps/types-trick/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "types-trick:build:production"
+        },
+        "development": {
+          "buildTarget": "types-trick:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "types-trick:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "types-trick:build",
+        "staticFilePath": "dist/apps/types-trick/browser"
+      }
+    }
+  }
+}

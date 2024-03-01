@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .description {
+    background-color: rgb(36, 36, 36);
+  }
+}

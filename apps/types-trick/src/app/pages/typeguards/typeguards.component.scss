@@ -1,0 +1,12 @@
+.container {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  .shape {
+    border: 1px solid wheat;
+  }
+  hr {
+    width: 100%;
+  }
+}
