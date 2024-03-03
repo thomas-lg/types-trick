@@ -6,6 +6,7 @@ export enum ShapeType {
 
 export interface ShapeObj {
   id: number;
+  kind: ShapeType;
   name: string;
 }
 

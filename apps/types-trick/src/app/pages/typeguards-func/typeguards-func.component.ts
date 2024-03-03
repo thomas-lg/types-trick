@@ -26,14 +26,14 @@ export class TypeguardsFuncComponent {
 
   shapeCircle: Shape = {
     id: 1,
-    name: 'My square',
+    name: 'My circle',
     kind: ShapeType.CIRCLE,
     radius: 20,
   };
 
   shapeRectangle: Shape = {
     id: 1,
-    name: 'My square',
+    name: 'My rectangle',
     kind: ShapeType.RECTANGLE,
     height: 20,
     width: 20,
@@ -54,16 +54,16 @@ export class TypeguardsFuncComponent {
     console.log('assertion ok for Circle, radius is: ', shape.radius);
   };
 
-  assertCircle(shape: Shape): asserts shape is Circle {
-    if (shape.kind !== ShapeType.CIRCLE) {
-      throw new Error('shape is not a Circle');
-    }
-  }
-
   isSquare = (input: Shape): input is Square => input.kind === ShapeType.SQUARE;
 
   isCircle = (input: Shape): input is Circle => input.kind === ShapeType.CIRCLE;
 
   isRectangle = (input: Shape): input is Rectangle =>
     input.kind === ShapeType.RECTANGLE;
+
+  assertCircle(shape: Shape): asserts shape is Circle {
+    if (shape.kind !== ShapeType.CIRCLE) {
+      throw new Error('shape is not a Circle');
+    }
+  }
 }

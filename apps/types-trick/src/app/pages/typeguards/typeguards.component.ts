@@ -10,7 +10,6 @@ type ShapeWithArea = Shape & { area: number };
   styleUrl: './typeguards.component.scss',
 })
 export class TypeguardsComponent implements OnInit {
-  shapeTypeEnum = ShapeType;
   shapes: Shape[] = [
     {
       id: 1,
@@ -42,6 +41,10 @@ export class TypeguardsComponent implements OnInit {
 
   shapesWithArea: ShapeWithArea[] = [];
 
+  get shapeTypeEnum() {
+    return ShapeType;
+  }
+
   ngOnInit(): void {
     this.shapesWithArea = this.shapes.map((s) => ({
       ...s,
@@ -50,14 +53,15 @@ export class TypeguardsComponent implements OnInit {
   }
 
   getArea = (shape: Shape): number => {
-    if (shape.kind === ShapeType.CIRCLE) {
-      return Math.PI * shape.radius ** 2;
-    } else if (shape.kind === ShapeType.SQUARE) {
-      return shape.sideLength ** 2;
-    } else if (shape.kind === ShapeType.RECTANGLE) {
-      return shape.width * shape.height;
-    } else {
-      return 0;
+    switch (shape.kind) {
+      case ShapeType.CIRCLE:
+        return Math.PI * shape.radius ** 2;
+      case ShapeType.SQUARE:
+        return shape.sideLength ** 2;
+      case ShapeType.RECTANGLE:
+        return shape.width * shape.height;
+      default:
+        return 0;
     }
   };
 }

@@ -1,7 +1,17 @@
 import { Component } from '@angular/core';
-import { ShapeInput } from '../../models/typeguards-input.model';
-import { Rectangle, Shape, ShapeType } from '../../models/typeguards.model';
+import {
+  Circle,
+  Rectangle,
+  Shape,
+  ShapeType,
+  Square,
+} from '../../models/typeguards.model';
+import { PartialBy } from '../../models/utils.model';
 
+type ShapeInput =
+  | PartialBy<Circle, 'id'>
+  | PartialBy<Square, 'id'>
+  | PartialBy<Rectangle, 'id'>;
 type ShapeExclude = Exclude<Shape, Rectangle>;
 type ShapeRequired = Required<ShapeInput>;
 type ShapeRecord = Record<string, Shape>;
@@ -22,20 +32,20 @@ export class TypescriptUtilsComponent {
 
   shapeInput: ShapeInput = {
     kind: ShapeType.CIRCLE,
-    name: 'My circle',
+    name: 'My input circle',
     radius: 20,
   };
 
   typeShapeExclude: ShapeExclude = {
     id: 1,
-    name: 'My little circle',
+    name: 'My exclude circle',
     kind: ShapeType.CIRCLE,
     radius: 20,
   };
 
   typeShapeRequired: ShapeRequired = {
     id: 1,
-    name: 'My little circle',
+    name: 'My required circle',
     kind: ShapeType.CIRCLE,
     radius: 20,
   };
@@ -43,7 +53,7 @@ export class TypescriptUtilsComponent {
   typeShapeRecords: ShapeRecord = {
     circle: {
       id: 1,
-      name: 'My little circle',
+      name: 'My record circle',
       kind: ShapeType.CIRCLE,
       radius: 20,
     },
