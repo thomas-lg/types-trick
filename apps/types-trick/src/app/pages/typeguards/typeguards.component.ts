@@ -15,7 +15,7 @@ export class TypeguardsComponent implements OnInit {
       id: 1,
       kind: ShapeType.CIRCLE,
       name: 'My circle',
-      radius: 30,
+      radius: 200,
     },
     {
       id: 2,

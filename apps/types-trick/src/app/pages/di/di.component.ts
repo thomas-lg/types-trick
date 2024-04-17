@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '@types-trick/ui-components';
 import {
   LoggerService,
-  MinimalLogger,
+  MinimalLoggerService,
 } from '../../services/logger/logger.service';
 
 @Component({
@@ -13,7 +13,7 @@ import {
   providers: [
     {
       provide: LoggerService,
-      useClass: MinimalLogger,
+      useClass: MinimalLoggerService,
     },
   ],
   templateUrl: './di.component.html',
